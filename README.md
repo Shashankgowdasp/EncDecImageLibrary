@@ -1,5 +1,5 @@
 # Image Encryption and Decryption Library
-created a Library which consist the Image Encryption and Decryption using the AES algorithm . for more information of this Library please go through pages.
+Welcome to the Image Encryption and Decryption Library! This project provides a comprehensive solution for encrypting and decrypting image files using strong encryption algorithms (AES). By leveraging the power of encryption, this project aims to enhance the security and privacy of sensitive image data.
 # Installation
 steps to install the library in your project by cloning the code.
 # step 1: Obtain the Library
