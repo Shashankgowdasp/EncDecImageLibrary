@@ -1,7 +1,5 @@
 package com.example.imageencriptionanddecription;
 
-import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,16 +27,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import javax.crypto.Cipher;
-import javax.crypto.spec.SecretKeySpec;
-
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
 public class ImageCripto extends AppCompatActivity {
@@ -93,7 +87,7 @@ public class ImageCripto extends AppCompatActivity {
             try {
                 String encryptedBase64Text = readFromCacheDir();
                 byte[] encryptedBytes = android.util.Base64.decode(encryptedBase64Text, android.util.Base64.DEFAULT);
-                byte[] decryptedBytes = Encrypter.decryptAES(encryptedBytes, AES_KEY);
+                byte[] decryptedBytes = AESEncryptDecrypt.decryptAES(encryptedBytes, AES_KEY);
                 Bitmap bitmap = BitmapFactory.decodeByteArray(decryptedBytes, 0, decryptedBytes.length);
                 imageView.setImageBitmap(bitmap);
             } catch (Exception e) {
@@ -166,7 +160,7 @@ public class ImageCripto extends AppCompatActivity {
                     ByteArrayOutputStream stream = new ByteArrayOutputStream();
                     bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
                     byte[] bytes = stream.toByteArray();
-                    byte[] encryptedBytes = Encrypter.encryptAES(bytes, AES_KEY);
+                    byte[] encryptedBytes = AESEncryptDecrypt.encryptAES(bytes, AES_KEY);
                     String imageBase64 = Base64.getEncoder().encodeToString(encryptedBytes);
 
                     // Save the Base64 string to the cache file

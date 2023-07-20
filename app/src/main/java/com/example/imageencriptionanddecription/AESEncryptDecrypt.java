@@ -5,7 +5,7 @@ import java.nio.charset.StandardCharsets;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 
-public class Encrypter {
+public class AESEncryptDecrypt {
 
 
     public static byte[] encryptAES(byte[] input, String key) throws Exception {
